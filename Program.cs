@@ -12,10 +12,10 @@ builder.Services.AddControllersWithViews();
 //}
 //);
 
-builder.Services.AddRouting(options =>
-{
-    options.ConstraintMap.Add("workingDayConstraint", typeof(WorkingDayConstraint));
-});
+//builder.Services.AddRouting(options =>
+//{
+//    options.ConstraintMap.Add("workingDayConstraint", typeof(WorkingDayConstraint));
+//});
 
 var app = builder.Build();
 
@@ -57,13 +57,19 @@ app.UseAuthorization();
 //    defaults: new { controller = "ChatGPT", action = "InfoAboutChatGPT" }
 //    );
 
-app.MapControllerRoute(
-name: "ControllerWithMethodForWeekDay",
-pattern: "{controller}/{action}/{enterTheDate:workingDayConstraint}",
-defaults: new { controller = "ChatGPT", action = "IsWorkingDay" });
+//app.MapControllerRoute(
+//    name: "ControllerWithMethodAndParams",
+//    pattern: "{controller}/{action}/{version:AlphabetWithNumericOurOwnName}",
+//    defaults: new { controller = "WareHouse", action = "GetJsonWareHouseDataAnalytic" }
+//    );
 
 //app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+//name: "ControllerWithMethodForWeekDay",
+//pattern: "{controller}/{action}/{enterTheDate:workingDayConstraint}",
+//defaults: new { controller = "ChatGPT", action = "IsWorkingDay" });
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
