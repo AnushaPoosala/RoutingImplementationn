@@ -32,5 +32,12 @@ namespace RoutingImplementation.Controllers
             }
             return View();
         }
+
+        public IActionResult IsWorkingDay(string enterTheDate)
+        {
+            TempData["IsWokringDay"] = "It is working Day!";
+            return View();
+        }
+        
     }
 }
